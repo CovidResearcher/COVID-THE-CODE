@@ -1,0 +1,9 @@
+"2022": {
+    "initial_mutagenic_rate": 4.5e-5,      # Strong NHC-TP / G→A / C→U signature in global data
+    "initial_titer": 60.0,                 # High loads in BA.1/BA.2
+    "initial_cub_bias": 0.78,              # Marked codon shifts during Delta→Omicron transition
+    "initial_ace2_binding": 0.96,
+    "initial_glyco_mod": 0.48,             # Substantial glycosylation changes
+    "initial_brain_tropism": 0.42,         # Increased compartmental CNS evolution
+    "hbond_shift": 1.55,
+}
