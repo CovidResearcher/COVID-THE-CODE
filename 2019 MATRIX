@@ -1,0 +1,9 @@
+"2019": {
+    "initial_mutagenic_rate": 3.8e-6,      # Natural RdRp fidelity with proofreading
+    "initial_titer": 1.0,
+    "initial_cub_bias": 1.00,              # Reference Wuhan codon usage
+    "initial_ace2_binding": 0.82,
+    "initial_glyco_mod": 0.05,             # Baseline N-glycan occupancy
+    "initial_brain_tropism": 0.00,         # Negligible CNS involvement
+    "hbond_shift": 1.05,
+}
