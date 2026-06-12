@@ -1,0 +1,40 @@
+def _get_baseline_parameters(self, year: str) -> Dict:
+        baselines = {
+            "2019": {
+                "initial_mutagenic_rate": 3.8e-6,
+                "initial_titer": 1.0,
+                "initial_cub_bias": 1.00,
+                "initial_ace2_binding": 0.82,
+                "initial_glyco_mod": 0.05,
+                "initial_brain_tropism": 0.00,
+                "hbond_shift": 1.05,
+            },
+            "2021": {
+                "initial_mutagenic_rate": 1.5e-5,
+                "initial_titer": 25.0,
+                "initial_cub_bias": 0.92,
+                "initial_ace2_binding": 0.94,
+                "initial_glyco_mod": 0.25,
+                "initial_brain_tropism": 0.18,
+                "hbond_shift": 1.28,
+            },
+            "2022": {
+                "initial_mutagenic_rate": 4.5e-5,
+                "initial_titer": 60.0,
+                "initial_cub_bias": 0.78,
+                "initial_ace2_binding": 0.96,
+                "initial_glyco_mod": 0.48,
+                "initial_brain_tropism": 0.42,
+                "hbond_shift": 1.55,
+            },
+            "2023": {
+                "initial_mutagenic_rate": 3.8e-5,
+                "initial_titer": 85.0,
+                "initial_cub_bias": 0.71,
+                "initial_ace2_binding": 0.97,
+                "initial_glyco_mod": 0.62,
+                "initial_brain_tropism": 0.58,
+                "hbond_shift": 1.68,
+            }
+        }
+        return baselines.get(year, baselines["2019"])
