@@ -1,0 +1,9 @@
+"2023": {
+    "initial_mutagenic_rate": 3.8e-5,      # Slightly stabilized but still elevated NHC-driven mutagenesis
+    "initial_titer": 85.0,                 # Sustained high replication in dominant subvariants (e.g. XBB, EG.5)
+    "initial_cub_bias": 0.71,              # Continued codon usage drift / further deoptimization
+    "initial_ace2_binding": 0.97,          # High transmissibility maintained
+    "initial_glyco_mod": 0.62,             # Further glycan shielding and remodeling
+    "initial_brain_tropism": 0.58,         # Stronger evidence of persistent CNS compartmentalization
+    "hbond_shift": 1.68,
+}
