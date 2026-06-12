@@ -1,0 +1,40 @@
+import numpy as np
+from scipy.integrate import odeint
+import matplotlib.pyplot as plt
+
+def sars_unified_framework(y, t, params):
+    V, Glyco_eff, Mut_load, HIF, Exhaust, Titer_eff = y
+    alpha, tau, beta, gamma, delta, epsilon = params  # host, tautomer, replication, kill, clear, exhaustion drive
+    
+    dV = beta * Glyco_eff * Titer_eff * (1 - V/100) - gamma * Mut_load * V          # replication - mutagenesis
+    dGlyco = alpha * (0.8 - Glyco_eff) - 0.05 * HIF                                 # glycosylation modulated by stress
+    dMut = tau * V - delta * Mut_load                                               # NHCTP tautomer incorporation
+    dHIF = 0.1 * V + 0.2 * Exhaust - 0.15 * HIF                                    # hypoxia + exhaustion
+    dExhaust = epsilon * HIF * (1 - Exhaust) * V - 0.08 * Exhaust                  # Warburg → terminal exhaustion
+    dTiter_eff = 0.05 * Glyco_eff * (1 - Mut_load) - 0.03 * Titer_eff              # codon fitness - mutation
+    
+    return [dV, dGlyco, dMut, dHIF, dExhaust, dTiter_eff]
+
+# Parameters (tunable to scenarios)
+params_base = [0.6, 0.4, 1.2, 0.8, 0.7, 0.7]   # α, τ (tautomer), β, γ, δ, ε
+
+y0 = [5.0, 0.7, 0.1, 0.2, 0.1, 0.6]            # moderate infection start
+t = np.linspace(0, 30, 300)
+
+sol = odeint(sars_unified_framework, y0, t, args=(params_base,))
+
+plt.figure(figsize=(12, 8))
+
+variables = ['Viral Load (V)', 'Glyco_eff', 'Mut_load', 'HIF-1α', 'Exhaustion', 'Titer_eff']
+colors = ['red', 'blue', 'purple', 'orange', 'darkgreen', 'brown']
+
+for i in range(6):
+    plt.subplot(2, 3, i+1)
+    plt.plot(t, sol[:, i], color=colors[i], linewidth=2)
+    plt.title(variables[i])
+    plt.xlabel('Time (days)')
+    plt.ylabel('Normalized Level')
+    plt.grid(True)
+
+plt.tight_layout()
+plt.show()
