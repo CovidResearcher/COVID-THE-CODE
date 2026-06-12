@@ -1,0 +1,9 @@
+"2021": {
+    "initial_mutagenic_rate": 1.5e-5,      # Elevated due to variant diversification + early C→U bias
+    "initial_titer": 25.0,                 # Higher viral loads in Delta
+    "initial_cub_bias": 0.92,              # Progressive deoptimization
+    "initial_ace2_binding": 0.94,          # Improved ACE2 affinity in Delta
+    "initial_glyco_mod": 0.25,             # Increased glycan remodeling under immune pressure
+    "initial_brain_tropism": 0.18,         # Emerging neurotropism reports
+    "hbond_shift": 1.28,
+}
